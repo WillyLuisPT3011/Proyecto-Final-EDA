@@ -1,7 +1,7 @@
 #include <stdio.h>    /* Funciones principales */
-#include <string.h>   /* operaciones de manipulaciÛn de memoria */
-#include <stdlib.h>   /* GestiÛn de memoria din·mica, control de procesos, etc */
-#include <locale.h>   /* configuraciÛn regional actual */
+#include <string.h>   /* operaciones de manipulaci√≥n de memoria */
+#include <stdlib.h>   /* Gesti√≥n de memoria din√°mica, control de procesos, etc */
+#include <locale.h>   /* configuraci√≥n regional actual */
  
 #define MAX 100 
 #define VALOR_CENTINELA -1
@@ -25,7 +25,7 @@ void menuModificar();
 void menuEliminarFisica();
  
 /* Funciones para manejar el archivo directamente */
-Informacion *obtenerInformaciones(int *n); /* Obtiene un vector din·mico de archivos */
+Informacion *obtenerInformaciones(int *n); /* Obtiene un vector din√°mico de archivos */
 char existeInformacion(int codigoInformacion, Informacion *informacion); 
 char insertarInformacion(Informacion informacion); 
 char eliminarInformacion(int codigoInformacion); 
@@ -33,7 +33,7 @@ char eliminacionFisica();
 char modificarInformacion(Informacion informacion); 
 char guardarReporte(); /* Genera un archivo TXT */
  
-/* FunciÛn de lectura de cadenas */
+/* Funci√≥n de lectura de cadenas */
 int leecad(char *cad, int n);
  
 /* Titular del programa */
@@ -53,10 +53,10 @@ void menuPrincipal()
 {
     char repite = 1;
     int opcion = -1;
-    /* Cuando el usuario ingresa texto en lugar de ingresar una opciÛn. El programa no modifica
-    el valor de opcion. En ese caso, no se debe de ingresar a ninguno de los case, por eso se est·
-    inicializando la variable opcion con un valor que no permita ejecutar ning˙n case. Simplemente,
-    volver a interar y pedir nuevamente la opciÛn. */
+    /* Cuando el usuario ingresa texto en lugar de ingresar una opci√≥n. El programa no modifica
+    el valor de opcion. En ese caso, no se debe de ingresar a ninguno de los case, por eso se est√°
+    inicializando la variable opcion con un valor que no permita ejecutar ning√∫n case. Simplemente,
+    volver a interar y pedir nuevamente la opci√≥n. */
  
     do {
         system("cls");
@@ -69,9 +69,9 @@ void menuPrincipal()
         printf("\t\t[3]. Eliminar un registro\n");
         printf("\t\t[4]. Buscar registro por numero o fecha\n");
         printf("\t\t[5]. Modificar un registro\n");
-        printf("\t\t[6]. EliminaciÛn fÌsica de registros\n");
+        printf("\t\t[6]. Eliminaci√≥n f√≠sica de registros\n");
         printf("\t\t[7]. Salir\n");
-        printf("\n\t\tIngrese su opciÛn: [ ]\b\b");
+        printf("\n\t\tIngrese su opci√≥n: [ ]\b\b");
  
         /* Lectura segura de un entero */
         leecad(linea, MAX);
@@ -123,7 +123,7 @@ void menuInsertar(){
         tituloPrincipal();
         printf("\n\t\t\t==> INSERTAR INFORMACION <==\n");
  
-        /* Se pide el cÛdigo del producto a insertar */
+        /* Se pide el c√≥digo del producto a insertar */
         printf("\n\tFecha o numero: ");
         leecad(linea, MAX);
         sscanf(linea, "%s", &codigoInformacion);
@@ -133,7 +133,7 @@ void menuInsertar(){
  
             informacion.codigo = codigoInformacion;
  
-            /* Se piden los dem·s datos del producto a insertar */
+            /* Se piden los dem√°s datos del producto a insertar */
             printf("\tNombre del registro: ");
             leecad(informacion.nombre, MAX);
  
@@ -147,13 +147,13 @@ void menuInsertar(){
                 printf("\n\tEl registro fue insertado correctamente\n");
  
             } else {
-                printf("\n\tOcurriÛ un error al intentar insertar el registro\n");
-                printf("\tIntÈntelo mas tarde\n");
+                printf("\n\tOcurri√≥ un error al intentar insertar el registro\n");
+                printf("\tInt√©ntelo mas tarde\n");
             }
         } else {
             /* El registro ya existe, no puede ser insertado. */
-            printf("\n\tLa informaciÛn de fecha o numero %f ya existe.\n", codigoInformacion);
-            printf("\tNo puede ingresar dos registros distintos con el mismo cÛdigo.\n");
+            printf("\n\tLa informaci√≥n de fecha o numero %f ya existe.\n", codigoInformacion);
+            printf("\tNo puede ingresar dos registros distintos con el mismo c√≥digo.\n");
         }
  
         printf("\n\tDesea seguir ingresando registros? [S/N]: ");
@@ -177,7 +177,7 @@ void menuBuscar(){
         tituloPrincipal();
         printf("\n\t\t\t==> BUSCAR REGISTRO POR FECHA O NUMERO <==\n");
  
-        /* Se pide el cÛdigo del producto a buscar */
+        /* Se pide el c√≥digo del producto a buscar */
         printf("\n\tFecha o numero del registro: ");
         leecad(linea, MAX);
         sscanf(linea, "%s", &codigoInformacion);
@@ -196,7 +196,7 @@ void menuBuscar(){
             printf("\n\tEl registro de la fecha o numero %s no existe.\n", codigoInformacion);
         }
  
-        printf("\n\tDesea seguir buscando alg˙n producto? [S/N]: ");
+        printf("\n\tDesea seguir buscando alg√∫n producto? [S/N]: ");
         leecad(respuesta, MAX);
  
         if (!(strcmp(respuesta, "S") == 0 || strcmp(respuesta, "s") == 0)) {
@@ -266,10 +266,10 @@ void menuMostrar()
  
     system("cls");
     tituloPrincipal();
-    informaciones = obtenerInformaciones(&numeroInformaciones); /* Retorna un vector din·mico de la informacion */
+    informaciones = obtenerInformaciones(&numeroInformaciones); /* Retorna un vector din√°mico de la informacion */
  
     if (numeroInformaciones == 0) {
-        printf("\n\tEl archivo est· vacÌo!!\n");
+        printf("\n\tEl archivo est√° vac√≠o!!\n");
         system("pause>nul");
  
     } else {
@@ -278,7 +278,7 @@ void menuMostrar()
         printf("%8s\t%-20s%15s%15s\n", "FECHA O NUMERO", "NOMBRE DEL REGISTRO", "DESCRIPCION", "ARCHIVO");
         printf(" ------------------------------------------------------------------------------\n");
  
-        /* Se recorre el vector din·mico de productos */
+        /* Se recorre el vector din√°mico de productos */
         for (i = 0; i < numeroInformaciones; i++) {
             if (informaciones[i].codigo != VALOR_CENTINELA) {
                 printf("%7s \t%-20.20s%15s%15s\n", informaciones[i].codigo, informaciones[i].nombre, informaciones[i].descripcion, informaciones[i].archivo);
@@ -290,9 +290,9 @@ void menuMostrar()
  
         if (strcmp(respuesta, "S") == 0 || strcmp(respuesta, "s") == 0) {
             if (guardarReporte()) {
-                printf("\n\tEl reporte fue guardado con Èxito\n");
+                printf("\n\tEl reporte fue guardado con √©xito\n");
             } else {
-                printf("\n\tOcurriÛ un error al guardar el reporte\n");
+                printf("\n\tOcurri√≥ un error al guardar el reporte\n");
             }
  
             system("pause>nul");
@@ -327,7 +327,7 @@ void menuModificar()
  
             printf("\n\tElija los datos a modificar\n");
  
-            /* ModificaciÛn del nombre del registro */
+            /* Modificaci√≥n del nombre del registro */
             printf("\n\tNombre del registro actual: %s\n", informacion.nombre);
             printf("\tDesea modificar el nombre del registro? [S/N]: ");
             leecad(respuesta, MAX);
@@ -336,7 +336,7 @@ void menuModificar()
                 leecad(informacion.nombre, MAX);
             }
  
-            /* ModificaciÛn de la descripcion del registro */
+            /* Modificaci√≥n de la descripcion del registro */
             printf("\n\tDescripcion: %s\n", informacion.descripcion);
             printf("\tDesea modificar la descripcion? [S/N]: ");
             leecad(respuesta, MAX);
@@ -346,7 +346,7 @@ void menuModificar()
                 sscanf(linea, "%s", &informacion.descripcion);
             }
  
-            /* ModificaciÛn del archivo del registro */
+            /* Modificaci√≥n del archivo del registro */
             printf("\n\tArchivo del registro actual: %s\n", informacion.archivo);
             printf("\tDesea modificar el archivo del registro? [S/N]: ");
             leecad(respuesta, MAX);
@@ -356,7 +356,7 @@ void menuModificar()
                 sscanf(linea, "%s", &informacion.archivo);
             }
  
-            printf("\n\tEst· seguro que desea modificar los datos del registro? [S/N]: ");
+            printf("\n\tEst√° seguro que desea modificar los datos del registro? [S/N]: ");
             leecad(respuesta, MAX);
  
             if (strcmp(respuesta, "S") == 0 || strcmp(respuesta, "s") == 0) {
@@ -365,8 +365,8 @@ void menuModificar()
                     printf("\n\tEl registro fue modificado correctamente\n");
  
                 } else {
-                    printf("\n\tOcurriÛ un error al intentar modificar el registro\n");
-                    printf("\tIntÈntelo mas tarde\n");
+                    printf("\n\tOcurri√≥ un error al intentar modificar el registro\n");
+                    printf("\tInt√©ntelo mas tarde\n");
                 }
             }
         } else {
@@ -374,7 +374,7 @@ void menuModificar()
             printf("\n\tEl registro de la fecha o del numero %s no existe.\n", codigoInformacion);
         }
  
-        printf("\n\tDesea modificar alg˙n otro registro? [S/N]: ");
+        printf("\n\tDesea modificar alg√∫n otro registro? [S/N]: ");
         leecad(respuesta, MAX);
  
         if (!(strcmp(respuesta, "S") == 0 || strcmp(respuesta, "s") == 0)) {
@@ -390,17 +390,17 @@ void menuEliminarFisica(){
  
     system("cls");
     tituloPrincipal();
-    printf("\n\t\t==> ELIMINAR FÕSICAMENTE REGISTROS DEL ARCHIVO <==\n");
+    printf("\n\t\t==> ELIMINAR F√çSICAMENTE REGISTROS DEL ARCHIVO <==\n");
  
-    /* Se pide el cÛdigo del registro a eliminar */
-    printf("\n\tSeguro que desea proceder con la eliminaciÛn fÌsica? [S/N]: ");
+    /* Se pide el c√≥digo del registro a eliminar */
+    printf("\n\tSeguro que desea proceder con la eliminaci√≥n f√≠sica? [S/N]: ");
     leecad(respuesta, MAX);
  
     if (strcmp(respuesta, "S") == 0 || strcmp(respuesta, "s") == 0) {
         if (eliminacionFisica()) {
-            printf("\n\tLa eliminaciÛn fÌsica se realizÛ con Èxito.\n");
+            printf("\n\tLa eliminaci√≥n f√≠sica se realiz√≥ con √©xito.\n");
         } else {
-            printf("\n\tOcurriÛ alg˙n error en la eliminaciÛn fÌsica.\n");
+            printf("\n\tOcurri√≥ alg√∫n error en la eliminaci√≥n f√≠sica.\n");
         }
  
         system("pause>nul");
@@ -411,7 +411,7 @@ Informacion *obtenerInformacion(int *n){
 	
     FILE *archivo;
     Informacion informacion;
-    Informacion *informaciones; /* Vector din·mico de informacion */
+    Informacion *informaciones; /* Vector din√°mico de informacion */
     int i;
  
     /* Abre el archivo en modo lectura */
@@ -457,7 +457,7 @@ char existeInformacion(int codigoInformacion, Informacion *informacion)
     } else {
         existe = 0;
  
-        /* Se busca el registro cuyo cÛdigo coincida con codigoInformacion */
+        /* Se busca el registro cuyo c√≥digo coincida con codigoInformacion */
         fread(&(*informacion), sizeof(*informacion), 1, archivo);
         while (!feof(archivo)) {
             if ((*informacion).codigo == codigoInformacion) {
@@ -480,7 +480,7 @@ char insertarInformacion(Informacion informacion)
     char insercion;
  
     /* Abre el archivo para agregar datos al final */
-    archivo = fopen("Informacion.dat", "ab");    /* AÒade datos al final. Si el archivo no existe, es creado */
+    archivo = fopen("Informacion.dat", "ab");    /* A√±ade datos al final. Si el archivo no existe, es creado */
  
     if (archivo == NULL) { /* Si no se pudo abrir el archivo, el valor de archivo es NULL */
         insercion = 0;
@@ -496,7 +496,7 @@ char insertarInformacion(Informacion informacion)
     return insercion;
 }
 
-/* ELiminaciÛn lÛgica de un registro */
+/* ELiminaci√≥n l√≥gica de un registro */
 char eliminarInformacion(int codigoInformacion)
 {
     FILE *archivo;
@@ -511,9 +511,9 @@ char eliminarInformacion(int codigoInformacion)
         elimina = 0;
  
     } else {
-        /* Se busca el registro que se quiere borrar. Cuando se encuentra, se sit˙a en esa posiciÛn mediante la 
-        funciÛn fseek y luego se modifica el campo clave de ese registro mediante alg˙n valor centinela, eso se logra 
-        con fwrite. Hasta allÌ se ha logrado una eliminaciÛn L”GICA. Porque el registro sigue ocupando espacio en el archivo fÌsico */
+        /* Se busca el registro que se quiere borrar. Cuando se encuentra, se sit√∫a en esa posici√≥n mediante la 
+        funci√≥n fseek y luego se modifica el campo clave de ese registro mediante alg√∫n valor centinela, eso se logra 
+        con fwrite. Hasta all√≠ se ha logrado una eliminaci√≥n L√ìGICA. Porque el registro sigue ocupando espacio en el archivo f√≠sico */
  
         elimina = 0;
         fread(&informacion, sizeof(informacion), 1, archivo);
@@ -548,7 +548,7 @@ char eliminacionFisica()
     if (archivo == NULL || temporal == NULL) {
         elimina = 0;
     } else {
-        /* Se copia en el archivo temporal los registros v·lidos */
+        /* Se copia en el archivo temporal los registros v√°lidos */
         fread(&informacion, sizeof(informacion), 1, archivo);
         while (!feof(archivo)) {
             if (informacion.codigo != VALOR_CENTINELA) {
@@ -609,7 +609,7 @@ char guardarReporte()
     int numeroInformaciones;
     int i;
  
-    informaciones = obtenerInformaciones(&numeroInformaciones); /* Retorna un vector din·mico de registros */
+    informaciones = obtenerInformaciones(&numeroInformaciones); /* Retorna un vector din√°mico de registros */
  
     if (numeroInformaciones == 0) {
         guardado = 0;
@@ -627,7 +627,7 @@ char guardarReporte()
             fprintf(archivo, "%8s\t%-20s%15s%15s\n", "FECHA O NUMERO", "NOMBRE DEL REGISTRO", "DESCRIPCION", "ARCHIVO");
             fprintf(archivo, " ------------------------------------------------------------------------------\n");
  
-            /* Se recorre el vector din·mico de registros */
+            /* Se recorre el vector din√°mico de registros */
             for (i = 0; i < numeroInformaciones; i++) {
                 if (informaciones[i].codigo != VALOR_CENTINELA) {
                     fprintf(archivo, "%7s \t%-20.20s%15s%15s\n", informaciones[i].codigo, informaciones[i].nombre, informaciones[i].descripcion, informaciones[i].archivo);
@@ -648,15 +648,15 @@ int leecad(char *cad, int n)
 {
     int i, c;
  
-    /* Hay que verificar si el buffer est· limpio o si hay un '\n'
+    /* Hay que verificar si el buffer est√° limpio o si hay un '\n'
       dejado por scanf y, en ese caso, limpiarlo:
     */
  
-    /* 1 COMPROBACI”N DE DATOS INICIALES EN EL BUFFER */
+    /* 1 COMPROBACI√ìN DE DATOS INICIALES EN EL BUFFER */
  
     /* Empezamos leyendo el primer caracter que haya en la entrada. Si es
-      EOF, significa que no hay nada por leer, asÌ que cerramos la cadena,
-      dej·ndola "vacÌa" y salimos de la funciÛn retornando un valor de 0
+      EOF, significa que no hay nada por leer, as√≠ que cerramos la cadena,
+      dej√°ndola "vac√≠a" y salimos de la funci√≥n retornando un valor de 0
       o falso, para indicar que hubo un error */
     c = getchar();
     if (c == EOF) {
@@ -664,16 +664,16 @@ int leecad(char *cad, int n)
         return 0;
     }
  
-    /* Si el valor leÌdo es '\n', significa que habÌa un caracter de nueva lÌnea
-    dejado por un scanf o funciÛn similar. Simplemente inicializamos i a 0,
+    /* Si el valor le√≠do es '\n', significa que hab√≠a un caracter de nueva l√≠nea
+    dejado por un scanf o funci√≥n similar. Simplemente inicializamos i a 0,
     para indicar que los siguientes caracteres que leamos iremos asignando a
     partir del primer caracter de la cadena. */
     if (c == '\n') {
         i = 0;
     } else {
-    /* Si no habÌa un '\n', significa que el caracter que leÌmos es el primer
+    /* Si no hab√≠a un '\n', significa que el caracter que le√≠mos es el primer
       caracter de la cadena introducida. En este caso, lo guardamos en la
-      posiciÛn 0 de cad, e inicializamos i a 1, porque en este caso, como ya
+      posici√≥n 0 de cad, e inicializamos i a 1, porque en este caso, como ya
       tenemos el primer caracter de la cadena, continuaremos agregando 
       caracteres a partir del segundo.
  
@@ -684,13 +684,13 @@ int leecad(char *cad, int n)
  
     /* 2. LECTURA DE LA CADENA */
  
-    /* El for empieza con un ; porque estamos omitiendo la inicializaciÛn del contador,
+    /* El for empieza con un ; porque estamos omitiendo la inicializaci√≥n del contador,
     ya que fue inicializado en el punto anterior.
-    Este cÛdigo lee un caracter a la vez,lo agrega a cad, y se repite hasta que
-    se encuentre un fin de lÌnea, fin de archivo, o haya leÌdo la cantidad m·xima
-    de caracteres que se le indicÛ. Luego, cierra la cadena agregando un '\0'
+    Este c√≥digo lee un caracter a la vez,lo agrega a cad, y se repite hasta que
+    se encuentre un fin de l√≠nea, fin de archivo, o haya le√≠do la cantidad m√°xima
+    de caracteres que se le indic√≥. Luego, cierra la cadena agregando un '\0'
     al final. Todo esto es muy similar a la forma en que los compiladores suelen
-    implementar la funciÛn fgets, sÛlo que en lugar de getchar usan getc o fgetc
+    implementar la funci√≥n fgets, s√≥lo que en lugar de getchar usan getc o fgetc
     */
     for (; i < n - 1 && (c = getchar()) != EOF && c != '\n'; i++) {
         cad[i] = c;
@@ -703,13 +703,13 @@ int leecad(char *cad, int n)
     if (c != '\n' && c != EOF) /* es un caracter */
         while ((c = getchar()) != '\n' && c != EOF);
  
-    /* La variable c contiene el ˙ltimo caracter leÌdo. Recordemos que habÌa 3 formas
+    /* La variable c contiene el √∫ltimo caracter le√≠do. Recordemos que hab√≠a 3 formas
     de salir del for: que hayamos encontrando un '\n', un EOF, o que hayamos llegado
-    al m·ximo de caracteres que debemos leer. Si se da cualquiera de los dos
-    primeros casos, significa que leÌmos todo lo que habÌa en el buffer, por lo que
-    no hay nada que limpiar. En el tercer caso, el usuario escribiÛ m·s caracteres
-    de los debidos, que a˙n est·n en el buffer, por lo que hay que quitarlos, para
-    lo cual usamos el mÈtodo que vimos poco m·s arriba
+    al m√°ximo de caracteres que debemos leer. Si se da cualquiera de los dos
+    primeros casos, significa que le√≠mos todo lo que hab√≠a en el buffer, por lo que
+    no hay nada que limpiar. En el tercer caso, el usuario escribi√≥ m√°s caracteres
+    de los debidos, que a√∫n est√°n en el buffer, por lo que hay que quitarlos, para
+    lo cual usamos el m√©todo que vimos poco m√°s arriba
     */
  
     return 1;
@@ -720,7 +720,7 @@ void tituloPrincipal()
     int i;
     printf("\n     ======================================================================\n");
     printf("\t\t\t     PROYECTO FINAL\n");
-    printf("\t   Base de datos: CreaciÛn, reportes, eliminaciÛn, b˙squeda y actualizaciÛn\n");
+    printf("\t   Base de datos: Creaci√≥n, reportes, eliminaci√≥n, b√∫squeda y actualizaci√≥n\n");
     printf("\t\t    Arroyo Chavarria Jose Luis\n");
     printf("     ======================================================================\n");
  
@@ -730,3 +730,5 @@ void tituloPrincipal()
         putchar('_');
     }
 }
+
+/* Fin del codigo */
